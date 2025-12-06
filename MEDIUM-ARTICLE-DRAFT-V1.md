@@ -134,25 +134,11 @@ This command:
 
 
 After the scan finishes, go back to SonarQube and open your project.
-Make sure your terminal is inside the DVWA folder:
-```
-cd DVWA
-```
 
-Run the scan using the command SonarQube provides:
-```
-sonar-scanner -D"sonar.projectKey=dvwa" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=YOUR_TOKEN_HERE"
-```
-
-[Screenshot: SonarScanner upload complete]
-
-After the scan finishes, go back to SonarQube and open your project.
-
----
 
 With the setup complete, the next natural step is to actually use the tool and see what SonarQube finds inside DVWA.
 
-## **5. Using the Software – Practical Example – Practical Example (500–700 words)**
+## **5. Using the Software – Practical Example – Practical Example **
 
 Instead of focusing on everything SonarQube found, I picked one issue that was simple and perfect for learning: a JavaScript variable declared incorrectly.
 
@@ -198,7 +184,7 @@ This issue shows that not all vulnerabilities are about hackers. Some are about 
 
 To put my findings into context, I reviewed industry resources that explain why these issues matter.
 
-## **6. Research Insights (400–500 words)**
+## **6. Research Insights )**
 Understanding *why* SonarQube flagged my issue required looking beyond the scan results and connecting them to real-world secure coding practices. To do that, I reviewed two reliable sources: **SonarSource’s official static analysis guidance** and the **OWASP Secure Coding Practices Checklist**. Both gave me a clearer understanding of why a missing variable declaration, even though small, truly matters.
 
 ### **Source 1: SonarSource – Why Small Coding Mistakes Matter**
@@ -222,7 +208,7 @@ This connection between theory and practice made the scan results more meaningfu
 
 ---
 
-## **7. Challenges and Problem-Solving (200–300 words)**
+## **7. Challenges and Problem-Solving **
 No technical project goes perfectly the first time, and this one definitely tested my patience, problem‑solving skills, and confidence. Looking back, the challenges were actually the most valuable part of the experience because they taught me how real developers troubleshoot in the moment.
 
 The first major challenge was the **SonarQube Docker download**. The image is huge, and watching it crawl from a few megabytes to several hundred felt endless. At one point, I genuinely thought something was broken. I felt impatient and frustrated, especially because I didn’t want to waste time. Eventually I learned that the slow download was normal and that sometimes the solution is simply giving tools time to finish. This taught me the importance of patience and understanding how large systems behave.
@@ -235,7 +221,7 @@ By the end, each challenge made me more confident. I learned that frustration is
 
 ---
 
-## **8. Conclusion and Future Applications (300–400 words)**. Conclusion and Future Applications (300–400 words)**. Conclusion and Future Applications (300–400 words)**
+## **8. Conclusion and Future Applications **. Conclusion and Future Applications (300–400 words)**. Conclusion and Future Applications (300–400 words)**
 
 This project helped me understand how powerful code review tools are. SonarQube showed me that even simple mistakes can have big effects. I learned how to set up tools, run scans, and understand reports.
 
