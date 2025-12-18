@@ -2,13 +2,13 @@
 
 ---
 
-## **1. Title**
+## 1. Title
 
-# **How I Used SonarQube to Analyze DVWA and Find Real Coding Issues (Beginner-Friendly Guide)**
+# How I Used SonarQube to Analyze DVWA and Find Real Coding Issues (Beginner-Friendly Guide)
 
 ---
 
-## **2. Introduction / Abstract **
+## 2. Introduction / Abstract 
 
 If you’ve ever wondered how developers catch bugs and vulnerabilities before they become serious problems, you’re not alone. When I first started learning cybersecurity, I used to think code review was something only senior developers or huge companies did. But after running my first code scan using SonarQube, I realized that even beginners can use powerful tools to find real issues hidden inside code.
 
@@ -20,7 +20,7 @@ Whether you’re a cybersecurity student like me or someone curious about code a
 
 ---
 
-## **3. Purpose and Background **
+## 3. Purpose and Background 
 
 When I chose SonarQube for my CSN190 project, my goal wasn’t to become an expert in software development—I wanted to understand how code scanning tools actually detect problems. Code review is one of the most important skills in cybersecurity because insecure code is one of the biggest reasons security breaches happen.
 
