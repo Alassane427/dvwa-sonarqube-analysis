@@ -48,7 +48,7 @@ What surprised me most was that SonarQube didn’t just find hacks it found ever
 ---
 
 
-## **4. Installation and Setup Tutorial **
+## 4. Installation and Setup Tutorial 
 
 ### **Prerequisites**
 To follow along, you need:
