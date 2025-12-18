@@ -194,21 +194,21 @@ One concept that stood out is how implicitly created global variables—like the
 
 **Key takeaway:** Even small mistakes compound over time. Static analysis helps catch them early.
 
-### **Source 2: OWASP Secure Coding Practices – Variable Scope and Predictability**
+###Source 2: OWASP Secure Coding Practices – Variable Scope and Predictability
 The OWASP Secure Coding Practices guide highlights a similar idea: **global variables are risky**. According to OWASP, secure coding is not only about preventing attacks, but also about avoiding design patterns that make code harder to maintain, reuse, or secure.
 
 OWASP explains that uncontrolled global state increases the chance of bugs and unexpected interactions—exactly the kind of issue SonarQube detected in DVWA. Even though forgetting a `let` or `const` isn’t a direct security exploit, OWASP shows how such mistakes weaken the overall reliability of the application.
 
 **Key takeaway:** Predictable code is secure code. Avoiding accidental globals is a basic part of secure practice.
 
-### **How These Sources Deepened My Understanding**
+### How These Sources Deepened My Understanding
 Before researching, I thought the missing variable declaration SonarQube flagged was just a tiny style issue. After reading SonarSource and OWASP, I understood that tools like SonarQube are teaching developers to think long-term. The goal isn’t only to stop hackers—it’s to write code that behaves exactly as intended.
 
 This connection between theory and practice made the scan results more meaningful. Instead of seeing SonarQube as a “mistake detector,” I began to see it as a teaching tool that helps beginners like me learn professional coding habits.
 
 ---
 
-## **7. Challenges and Problem-Solving **
+## 7. Challenges and Problem-Solving 
 No technical project goes perfectly the first time, and this one definitely tested my patience, problem‑solving skills, and confidence. Looking back, the challenges were actually the most valuable part of the experience because they taught me how real developers troubleshoot in the moment.
 
 The first major challenge was the **SonarQube Docker download**. The image is huge, and watching it crawl from a few megabytes to several hundred felt endless. At one point, I genuinely thought something was broken. I felt impatient and frustrated, especially because I didn’t want to waste time. Eventually I learned that the slow download was normal and that sometimes the solution is simply giving tools time to finish. This taught me the importance of patience and understanding how large systems behave.
@@ -221,7 +221,7 @@ By the end, each challenge made me more confident. I learned that frustration is
 
 ---
 
-## **8. Conclusion and Future Applications **. Conclusion and Future Applications (300–400 words)**. Conclusion and Future Applications (300–400 words)**
+## 8. Conclusion and Future Applications. Conclusion and Future Applications. Conclusion and Future Applications
 
 This project helped me understand how powerful code review tools are. SonarQube showed me that even simple mistakes can have big effects. I learned how to set up tools, run scans, and understand reports.
 
@@ -252,7 +252,7 @@ Below are the core resources that supported this project. Instead of overwhelmin
 - **OWASP Secure Coding Practices Checklist** – Reinforced why global variables and poor coding habits matter.
   https://owasp.org/www-project-secure-coding-practices/
 
-### **Tools Used in This Project**
+### Tools Used in This Project
 - **Docker Desktop** – Used to run SonarQube locally.
 - **Visual Studio Code** – Used as the main development/editor environment.
 - **Windows Terminal / PowerShell** – Used to run scanner commands and work inside the DVWA folder.
