@@ -57,7 +57,7 @@ To follow along, you need:
 - VS Code 
 - Git installed
 
-### **Step 1: Clone the DVWA Repository**
+### Step 1: Clone the DVWA Repository
 Open VS Code and run:
 ```
 git clone https://github.com/digininja/DVWA.git
@@ -65,7 +65,7 @@ git clone https://github.com/digininja/DVWA.git
 
 [Screenshot: DVWA folder visible in VS Code Explorer sidebar — showing index.php, config, js, and other DVWA files]
 
-### **Step 2: Install and Start SonarQube Using Docker**
+### Step 2: Install and Start SonarQube Using Docker
 In your terminal:
 ```
 docker run -d --name sonarqube -p 9000:9000 sonarqube
@@ -84,7 +84,7 @@ username: admin
 password: admin
 ```
 
-### **Step 3: Install SonarScanner**
+### Step 3: Install SonarScanner
 Download from the official website and add the bin folder to your system PATH.
 
 Check installation:
@@ -95,7 +95,7 @@ sonar-scanner --version
 <img width="1440" height="1020" alt="Sonnar_version" src="https://github.com/user-attachments/assets/17b638cb-7a66-46dc-a92f-3c864ffb3883" />
 
 
-### **Step 4: Create a Project in SonarQube**
+### Step 4: Create a Project in SonarQube
 Before scanning, SonarQube requires a project to be created.
 
 1. Open SonarQube in your browser:
@@ -114,7 +114,7 @@ http://localhost:9000
 
 [Screenshot: SonarQube showing project setup]
 
-### **Step 5: Run the Scan on DVWA**
+### Step 5: Run the Scan on DVWA
 Make sure your terminal is inside the DVWA folder:
 ```
 cd DVWA
@@ -153,7 +153,7 @@ SonarQube flagged this line:
 day = new Date();
 ```
 
-### **Why SonarQube Flagged It**
+### Why SonarQube Flagged It
 SonarQube labeled this as a **Maintainability Issue** because the variable `day` is created **without** using:
 - `let`
 - `const`
@@ -164,7 +164,7 @@ Without these keywords, JavaScript treats the variable as a **global variable**,
 - override variables accidentally
 - make the code harder to understand
 
-### **How to Fix It**
+### How to Fix It
 A simple fix:
 ```
 let day = new Date();
@@ -175,7 +175,7 @@ or, if it never changes:
 const day = new Date();
 ```
 
-### **What This Means for Beginners**
+### What This Means for Beginners
 This issue shows that not all vulnerabilities are about hackers. Some are about **sloppy code** that causes unexpected behavior. Clean code = fewer bugs = fewer security risks.
 
 [Screenshot: SonarQube issue panel highlighting the JavaScript variable declaration problem — showing severity level, rule description, and suggested fix]
