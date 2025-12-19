@@ -138,11 +138,11 @@ After the scan finishes, go back to SonarQube and open your project.
 
 With the setup complete, the next natural step is to actually use the tool and see what SonarQube finds inside DVWA.
 
-## **5. Using the Software – Practical Example – Practical Example **
+## 5. Using the Software – Practical Example 
 
 Instead of focusing on everything SonarQube found, I picked one issue that was simple and perfect for learning: a JavaScript variable declared incorrectly.
 
-### **The Issue I Found**
+### The Issue I Found
 File scanned:
 ```
 dvwa/js/dvwaPage.js
@@ -184,10 +184,10 @@ This issue shows that not all vulnerabilities are about hackers. Some are about 
 
 To put my findings into context, I reviewed industry resources that explain why these issues matter.
 
-## **6. Research Insights )**
+## 6. Research Insights 
 Understanding *why* SonarQube flagged my issue required looking beyond the scan results and connecting them to real-world secure coding practices. To do that, I reviewed two reliable sources: **SonarSource’s official static analysis guidance** and the **OWASP Secure Coding Practices Checklist**. Both gave me a clearer understanding of why a missing variable declaration, even though small, truly matters.
 
-### **Source 1: SonarSource – Why Small Coding Mistakes Matter**
+### Source 1: SonarSource – Why Small Coding Mistakes Matter
 The SonarSource documentation explains one of the core ideas behind static analysis: **clean, intentional code leads to more secure applications**. Even when a mistake doesn’t look like a “vulnerability,” it can still introduce unpredictable behavior, and unpredictability is the enemy of security.
 
 One concept that stood out is how implicitly created global variables—like the `day` variable in my DVWA example—can leak into other parts of a program. This can cause unintended overrides, conflicts, or logic errors. SonarSource stresses that these maintainability issues often turn into real vulnerabilities later when developers build new features on top of messy code.
@@ -232,10 +232,10 @@ In the future, I want to explore:
 
 ---
 
-## **9. Resources and Links**
+## 9. Resources and Links
 Below are the core resources that supported this project. Instead of overwhelming the reader with too many citations, this list focuses on the essential tools and documentation someone would actually need to repeat the steps.
 
-### **Project Resources**
+### Project Resources
 - **DVWA (Damn Vulnerable Web Application)** – Official GitHub repository used for scanning and testing.
   https://github.com/digininja/DVWA
 
@@ -245,7 +245,7 @@ Below are the core resources that supported this project. Instead of overwhelmin
 - **SonarScanner CLI** – Tool used to upload the DVWA source code to SonarQube for analysis.
   https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/sonarscanner/
 
-### **Learning & Reference Materials**
+### Learning & Reference Materials
 - **Basic SonarQube Setup Guide (Official Docs)** – Helped with initial configuration and understanding how local analysis works.
   https://docs.sonarsource.com
 
