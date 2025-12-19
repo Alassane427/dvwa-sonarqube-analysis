@@ -1,6 +1,7 @@
 # **How I Used SonarQube to Analyze DVWA: A Beginner-Friendly Walkthrough**
 
 When I started this project, I wanted real experience with a tool that professionals actually use to find security flaws in applications. Instead of just reading about vulnerabilities, I wanted to see them — what they look like inside code, how they're detected, and how the scanning process works.
+<img width="1000" height="667" alt="image" src="https://github.com/user-attachments/assets/4e14f928-c63f-4fe3-973c-210805eae2ea" />
 
 To do that, I used two well-known tools:
 
@@ -27,8 +28,8 @@ DVWA is built specifically for cybersecurity practice. After pulling the DVWA Do
 It provides a controlled environment full of intentional vulnerabilities perfect for learning.
 
 ```
-[Insert Screenshot: DVWA container running in Docker Desktop]
-[Insert Screenshot: DVWA homepage]
+<img width="960" height="1020" alt="image" src="https://github.com/user-attachments/assets/35bc5a7d-f65f-4a0e-b3c4-98eed90577d9" />
+
 ```
 
 ---
@@ -40,9 +41,8 @@ SonarQube required more resources. The Docker image took a long time to download
 Seeing SonarQube load felt like a major milestone.
 
 ```
-[Insert Screenshot: SonarQube container running]
-[Insert Screenshot: SonarQube dashboard homepage]
-```
+<img width="1000" height="531" alt="image" src="https://github.com/user-attachments/assets/3b4cad2e-446f-4838-acd2-a90c33032478" />
+
 
 ---
 
@@ -66,8 +66,8 @@ To fix this, I:
 4. Generated an authentication token  
 
 ```
-[Insert Screenshot: Create Project screen]
-[Insert Screenshot: Token creation screen]
+<img width="1000" height="663" alt="image" src="https://github.com/user-attachments/assets/414c5fea-be0a-48a7-8afe-9b2651951d2f" />
+
 ```
 
 The token allows the scanner to authenticate securely.
