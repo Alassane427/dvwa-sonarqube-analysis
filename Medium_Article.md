@@ -1,187 +1,175 @@
-# **How I Used SonarQube to Analyze DVWA: A Beginner-Friendly Walkthrough**
+# How I Used SonarQube to Analyze DVWA: A Beginner-Friendly Walkthrough
+<img width="1000" height="667" alt="image" src="https://github.com/user-attachments/assets/75b44364-ee42-4ab1-a070-111561221ed3" />
 
-When I started this project, I wanted real experience with a tool that professionals actually use to find security flaws in applications. Instead of just reading about vulnerabilities, I wanted to see them — what they look like inside code, how they're detected, and how the scanning process works.
-<img width="1000" height="667" alt="image" src="https://github.com/user-attachments/assets/4e14f928-c63f-4fe3-973c-210805eae2ea" />
+When I started this project, I wanted real experience with a tool that professionals actually use to find security flaws in applications. Instead of just reading about vulnerabilities, I wanted to see them - what they look like inside code, how they're detected, and how the scanning process works.
 
-To do that, I used two well-known tools:
+To do that, I used two well known tools:  
+**DVWA (Damn Vulnerable Web Application)** - an intentionally insecure web app made for learning  
+**SonarQube** - a static analysis platform used by companies to identify bugs, vulnerabilities, and code quality issues
 
-- **DVWA (Damn Vulnerable Web Application)** — an intentionally insecure web app made for learning  
-- **SonarQube** — a static analysis platform used to identify bugs, vulnerabilities, and code quality issues  
+**My goal was simple:**  
+Run SonarQube against DVWA, analyze the results, and learn how real-world security scanning works.
 
-**Project Goal:**  
-Scan DVWA using SonarQube, analyze the results, and understand how real-world security scanning works.
-
-This walkthrough explains step-by-step how I set everything up, what SonarQube found, the mistakes I made, and what I learned.
-
----
-
-## **Setting Up DVWA and SonarQube Using Docker**
-
-Setting up both tools with Docker was the fastest and cleanest way to get everything running. Using containers kept the tools isolated and easy to start or stop at any time.
+This walkthrough explains exactly how I set things up, what SonarQube found, the mistakes I made along the way, and what I learned from troubleshooting everything myself.
 
 ---
 
-## **Starting DVWA**
+## Setting Up DVWA and SonarQube Using Docker
+
+Setting up both tools with Docker was the fastest and cleanest way to get everything running. Using containers kept the tools isolated and easy to start or stop at any time. Even though this setup sounds simple, this was the part where I learned the most about managing security tools.
+
+---
+
+## Starting DVWA
 
 DVWA is built specifically for cybersecurity practice. After pulling the DVWA Docker image, the container launched immediately, and I could access the vulnerable application through my browser.
+<img width="960" height="1020" alt="image" src="https://github.com/user-attachments/assets/d336c2a4-20c3-482d-a1a4-dabc4cda325e" />
 
-It provides a controlled environment full of intentional vulnerabilities perfect for learning.
-
-```
-<img width="960" height="1020" alt="image" src="https://github.com/user-attachments/assets/35bc5a7d-f65f-4a0e-b3c4-98eed90577d9" />
-
-```
+DVWA gave me a controlled environment full of intentional vulnerabilities perfect for learning.
 
 ---
 
-## **Starting SonarQube in Docker**
+## Starting SonarQube in Docker
 
-SonarQube required more resources. The Docker image took a long time to download, and at first, I thought something was wrong. Eventually, the container finished installing, and I accessed the SonarQube dashboard in my browser.
+SonarQube was more demanding. The Docker image took a long time to download, and at first, I thought something was wrong. Eventually, the container finished installing, and I accessed the SonarQube dashboard in my browser.
+<img width="1000" height="531" alt="image" src="https://github.com/user-attachments/assets/7d550228-e201-49ba-911b-c126185c843c" />
 
-Seeing SonarQube load felt like a major milestone.
-
-```
-<img width="1000" height="531" alt="image" src="https://github.com/user-attachments/assets/3b4cad2e-446f-4838-acd2-a90c33032478" />
-
+Seeing SonarQube load in the browser felt like a big milestone because this is a tool used in real DevSecOps pipelines.
 
 ---
 
-## **Running the SonarScanner**
+## Running the SonarScanner
 
-Once DVWA and SonarQube were both running, the next step was scanning the DVWA code using **SonarScanner**, which sends source code to SonarQube for analysis.
-
-This helped me understand how SonarQube organizes projects, tokens, and scan uploads.
+Once DVWA and SonarQube were running, it was time to scan the DVWA code using SonarScanner, a command-line tool that sends code to SonarQube for analysis. This step taught me a lot about how SonarQube is structured and how scanners communicate with analysis servers.
 
 ---
 
-## **Creating a SonarQube Project**
+## Creating a SonarQube Project
 
-My first scanning attempts failed because SonarQube requires a project before accepting any scan uploads.
+My first scanner attempts failed because SonarQube requires a project before any scans can be uploaded. After figuring this out, I:
 
-To fix this, I:
+- Logged into the SonarQube dashboard  
+- Clicked **"Create Project"**  
+- Named my project (e.g., `dvwa-analysis`)  
+- Generated an authentication token  
 
-1. Logged into SonarQube  
-2. Clicked **“Create Project”**  
-3. Named the project (example: `dvwa-analysis`)  
-4. Generated an authentication token  
-
-```
-<img width="1000" height="663" alt="image" src="https://github.com/user-attachments/assets/414c5fea-be0a-48a7-8afe-9b2651951d2f" />
-
-```
-
-The token allows the scanner to authenticate securely.
+The token is what allows the scanner to authenticate securely.
+<img width="1000" height="663" alt="image" src="https://github.com/user-attachments/assets/dd00b804-33ae-4308-8886-82ebc127a2e1" />
 
 ---
 
-## **Running the Scan**
+## Running the Scan
 
-Once everything was configured properly, I ran SonarScanner again. This time it successfully:
+With everything set up, I ran the scanner command again. This time, it began indexing and analyzing the DVWA code:
 
-- Indexed the DVWA files  
-- Applied security rules  
-- Uploaded results to the dashboard  
+- recognizing files  
+- applying security rules  
+- uploading results to the dashboard  
+<img width="1000" height="695" alt="image" src="https://github.com/user-attachments/assets/82ab77f4-d1f2-4d24-9be6-fae4f061f0cf" />
 
-```
-[Insert Screenshot: Successful terminal scan output]
-```
+Seeing the scan succeed helped me understand how the pieces fit together.
 
 ---
 
-## **What SonarQube Found in DVWA**
+## What SonarQube Found in DVWA
 
-After the scan completed, SonarQube displayed multiple issues.
+After the scan completed, the SonarQube dashboard displayed a list of issues.
 
-### **Highlighted Issue: JavaScript Variable Used Without Declaration**
+One issue stood out right away:
 
-SonarQube flagged a variable (`day`) used without defining it with `let`, `const`, or `var`.
+### **JavaScript Variable Used Without Declaration**
 
-### **Why This Matters**
+SonarQube flagged the variable **day**, which was used without `let`, `const`, or `var`.
 
-- It becomes an unintended global variable  
-- Other scripts can overwrite it  
-- It can cause unpredictable behavior  
-- Debugging becomes more difficult  
-- In larger apps, this becomes a real security and stability issue  
+### Why this matters:
 
-SonarQube also categorized issues into:
+- JavaScript automatically creates an unintended global variable  
+- Global variables can be overwritten by other scripts  
+- They can cause unpredictable behavior  
+- They make debugging much harder  
+- In larger apps, this leads to real security and stability problems  
+
+This helped me understand how simple coding habits can create deeper issues.
+<img width="1000" height="513" alt="image" src="https://github.com/user-attachments/assets/a55449ce-6d5f-4f8e-a73e-b2d4902db8a8" />
+
+SonarQube also categorized additional findings into:
 
 - **Security Hotspots**  
 - **Code Smells**  
 - **Bugs**
 
-```
-[Insert Screenshot: SonarQube issue details]
-[Insert Screenshot: Issues dashboard]
-```
+This taught me the differences between maintainability issues and actual security vulnerabilities.
 
 ---
 
-## **Challenges I Faced (And What They Taught Me)**
+## Challenges I Faced (And What They Taught Me)
 
-This project wasn’t perfect. These challenges taught me how real tools behave.
+This project wasn't perfect, and I ran into multiple challenges. Each one ended up teaching me something valuable about how real-world tools behave.
 
 ---
 
-### **1. Extremely Slow SonarQube Download**
+### 1. Extremely Slow SonarQube Download
 
-The image was large, and Docker pulled it slowly.
+The Docker image took so long to download that I thought something was wrong.
 
 **What I learned:**  
-Large enterprise tools require patience. Slow downloads don't always mean errors.
+Large enterprise tools require patience, and slow downloads don't always mean errors.
 
 ---
 
-### **2. Scanner Failed Repeatedly**
+### 2. Scanner Failed Repeatedly
 
-I kept running scans before creating the SonarQube project.
+My first scans kept failing because I hadn't created a project in SonarQube yet.
 
 **What I learned:**  
-Tools like SonarQube follow specific workflows and expect certain steps in order.
+Tools often rely on specific workflows, and understanding the setup order is important.
+<img width="1000" height="695" alt="image" src="https://github.com/user-attachments/assets/25d13c67-ad58-431b-95bd-6c2b927878c5" />
 
 ---
 
-### **3. Confusion About Authentication Tokens**
+### 3. Confusion About Authentication Tokens
 
-I had never used tokens before and needed to learn how they authenticate scanners.
+I had never used tokens before, so figuring out how they authenticate the scanner took some research.
 
 **What I learned:**  
 Even simple authentication systems require attention to detail. Tokens are widely used in real development pipelines.
-
+<img width="1000" height="662" alt="image" src="https://github.com/user-attachments/assets/1a4cfb4c-4c94-44b6-81b8-3c168f6e18f3" />
 
 ---
 
-## **What I Learned**
+## What I Learned
 
-This project helped me understand how software development and cybersecurity overlap.
+This project gave me a clearer understanding of how cybersecurity and software development overlap.
 
-- **Static analysis is powerful.**  
+- **Static analysis is extremely powerful.**  
   SonarQube detects vulnerabilities and coding issues that are easy to overlook.
 
-- **Small mistakes can create big issues.**  
-  The undeclared variable `day` showed how tiny errors become larger problems.
+- **Small coding mistakes can lead to real issues.**  
+  The undeclared variable showed how something tiny can create bigger problems later.
 
-- **Troubleshooting is part of the process.**  
-  Most tools don’t work perfectly the first time.
+- **Troubleshooting is part of the learning process.**  
+  Tools don't always work on the first try. Fixing errors taught me how these systems behave.
 
 - **Professional tools require proper setup.**  
-  SonarQube becomes extremely valuable once configured correctly.
+  SonarQube is not a lightweight tool, but once configured, it provides valuable analysis.
 
 ---
 
-## **Conclusion**
+## Conclusion
 
-This project gave me hands-on experience with a real static analysis tool. Scanning DVWA with SonarQube helped me understand how vulnerabilities are detected, how issues are categorized, and how automated tools help developers improve code security and quality.
+This project gave me hands-on experience using a real static analysis tool to examine insecure code. Scanning DVWA with SonarQube helped me understand how vulnerabilities are detected, how issues are categorized, and how developers use automated tools to improve security.
 
-It strengthened my problem-solving skills and increased my confidence working with professional tools.
+Most importantly, it showed me that learning cybersecurity is a process of experimenting, breaking things, fixing them, and understanding how everything connects.
+
+This experience made me more confident working with professional tools and deepened my understanding of secure coding practices.
 
 ---
 
-## **Resources**
+## Resources
 
-- DVWA GitHub: https://github.com/digininja/DVWA  
-- SonarQube: https://www.sonarsource.com/products/sonarqube/  
-- SonarQube Documentation: https://docs.sonarqube.org  
-- SonarScanner Guide: https://docs.sonarqube.org/latest/analyzing-source-code/scanners/sonarscanner/  
-- Docker: https://www.docker.com  
-
+DVWA GitHub: https://github.com/digininja/DVWA  
+SonarQube: https://www.sonarsource.com/products/sonarqube/  
+SonarQube Documentation: https://docs.sonarqube.org  
+SonarScanner Guide:  
+https://docs.sonarqube.org/latest/analyzing-source-code/scanners/sonarscanner/  
+Docker: https://www.docker.com
